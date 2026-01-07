@@ -251,9 +251,9 @@
             window.__app.formValidInit = true;
             
             const patterns = {
-                name: /^[a-zA-ZÀ-ÿs-']{2,50}$/,
-                email: /^[^s@]+@[^s@]+.[^s@]+$/,
-                phone: /^[ds+-()]{10,20}$/,
+                name: /^[a-zA-ZÀ-ÿ\s-']{2,50}$/,
+                email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                phone: /^[\d\s+\-()]{10,20}$/,
                 message: /^.{10,}$/
             };
             
@@ -595,126 +595,3 @@
     }
     
 })();
-.navbar-collapse {
-    position: fixed;
-    top: var(--header-h);
-    left: 0;
-    right: 0;
-    background-color: var(--color-white);
-    border-bottom: 1px solid var(--color-border);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
-    box-shadow: var(--shadow-lg);
-    z-index: var(--z-nav);
-    height: calc(100vh - var(--header-h));
-}
-
-.navbar-collapse.show {
-    max-height: calc(100vh - var(--header-h));
-    overflow-y: auto;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.c-card, .card {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-.c-button:active, .btn:active {
-    transform: scale(0.96);
-}
-
-.nav-link {
-    position: relative;
-    overflow: hidden;
-}
-
-.nav-link::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 2px;
-    background: var(--color-primary);
-    transform: scaleX(0);
-    transition: transform 0.3s ease-out;
-}
-
-.nav-link:hover::before,
-.nav-link.is-active::before {
-    transform: scaleX(1);
-}
-
-.c-form__input:focus, .form-control:focus, .form-select:focus {
-    animation: inputFocus 0.3s ease-out;
-}
-
-@keyframes inputFocus {
-    0% {
-        box-shadow: 0 0 0 0 rgba(127, 176, 105, 0.4);
-    }
-    100% {
-        box-shadow: 0 0 0 3px rgba(127, 176, 105, 0.15);
-    }
-}
-
-.hero-section {
-    animation: fadeIn 1s ease-out;
-}
-
-.carousel-item {
-    animation: fadeIn 0.6s ease-in-out;
-}
-
-img[loading="lazy"] {
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.media-mention {
-    transition: all 0.3s ease-out;
-}
-
-.media-mention:hover {
-    transform: translateY(-6px) scale(1.02);
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
